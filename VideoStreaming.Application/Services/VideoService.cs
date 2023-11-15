@@ -14,7 +14,7 @@ public class VideoService : IVideoService
     public async Task<Stream> GetVideoAsync(string videoName)
     {
         var streamProvider = _fileProvider;
-        var fileInfo = streamProvider.GetFileInfo($"{videoName}.m3u8");
+        var fileInfo = streamProvider.GetFileInfo(@$"{videoName}\{videoName}.m3u8");
 
         if (!fileInfo.Exists)
         {
@@ -24,10 +24,10 @@ public class VideoService : IVideoService
         return fileInfo.CreateReadStream();
     }
 
-    public async Task<Stream> GetVideoChunk(string videoChunk)
+    public async Task<Stream> GetVideoChunk(string videoName, string videoChunk)
     {
         var streamProvider = _fileProvider;
-        var fileInfo = streamProvider.GetFileInfo($"{videoChunk}.ts");
+        var fileInfo = streamProvider.GetFileInfo(@$"{videoName}\{videoChunk}.ts");
 
         if (!fileInfo.Exists)
         {

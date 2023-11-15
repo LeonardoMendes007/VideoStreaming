@@ -40,10 +40,10 @@ namespace VideoStreaming.API.Controllers
             return new FileStreamResult(stream, contentType);
         }
 
-        [HttpGet("{videoChunk}.ts")]
-        public async Task<IActionResult> GetVideoChunk(string videoChunk)
+        [HttpGet("{videoName}/{videoChunk}.ts")]
+        public async Task<IActionResult> GetVideoChunk(string videoName, string videoChunk)
         {
-            var stream = await _videoService.GetVideoChunk(videoChunk);
+            var stream = await _videoService.GetVideoChunk(videoName, videoChunk);
 
             if (stream is null)
             {

@@ -11,7 +11,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IVideoService, VideoService>();
-builder.Services.AddSingleton<IFileProvider>(new PhysicalFileProvider(@$"C:\Projetos\Dotnet\M3U8Example\audioslave"));
+builder.Services.AddScoped<IVideoManagerService, VideoManagerService>();
+builder.Services.AddScoped<IVideoConverterService, VideoConverterService>();
+builder.Services.AddSingleton<IFileProvider>(new PhysicalFileProvider(@$"D:\Videos"));
 
 var app = builder.Build();
 

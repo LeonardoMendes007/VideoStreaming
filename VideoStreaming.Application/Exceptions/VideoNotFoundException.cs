@@ -1,7 +1,7 @@
 ﻿namespace VideoStreaming.Application.Exceptions;
 
 [Serializable]
-internal class VideoNotFoundException : Exception
+public class VideoNotFoundException : Exception
 {
     public VideoNotFoundException()
     {

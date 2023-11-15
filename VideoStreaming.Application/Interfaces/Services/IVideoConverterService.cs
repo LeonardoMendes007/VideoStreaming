@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace VideoStreaming.Application.Interfaces.Services;
 
-public interface IVideoService
+public interface IVideoConverterService
 {
-    Task<Stream> GetVideoAsync(string videoName);
-    Task<Stream> GetVideoChunk(string videoName, string videoChunk);
+    Task ConverterMP4toM3U8(string inputFilePath, string outputFilePath);
 }
